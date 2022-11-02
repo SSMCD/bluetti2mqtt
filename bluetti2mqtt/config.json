@@ -1,6 +1,6 @@
 {
   "name": "Bluetti to MQTT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "bluetti2mqtt",
   "description": "MQTT bridge between Bluetti and Home Assistant",
   "url": "https://github.com/SSMCD/bluetti2mqtt",
