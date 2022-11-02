@@ -1,0 +1,22 @@
+configuration:
+  mqtt_username:
+    name: MQTT username
+    description: The MQTT username.
+  mqtt_password:
+    name: MQTT password
+    description: The MQTT password.
+  mqtt_host:
+    name: MQTT host
+    description: The MQTT host ip address.
+  bt_mac:
+    name: Bluetooth MAC Address
+    description: The MAC address of the Bluetti device.
+  poll_sec:
+    name: Poll Seconds
+    description: Polling interval in seconds.
+  scan:
+    name: Scan
+    description: Enable to scan for devices on startup.  Check the log tab for output.
+  log_mode:
+    name: Log Mode
+    description: Enable to start the program in log mode.  Logs are saved to /share/bluetti2mqtt/device.log.
