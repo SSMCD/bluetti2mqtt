@@ -10,13 +10,16 @@ configuration:
     description: The MQTT host ip address.
   bt_mac:
     name: Bluetooth MAC Address
-    description: The MAC address of the Bluetti device.
+    description: The MAC address(es) of the Bluetti devices.
   poll_sec:
-    name: Poll Seconds
+    name: Poll Interval
     description: Polling interval in seconds.
   scan:
     name: Scan
-    description: Enable to scan for devices on startup.  Check the log tab for output.
-  log_mode:
+    description: Scan for devices on startup.  Check the log tab for output.
+  debug:
+    name: Debug Mode
+    description: Enable debug mode.  Check the log tab for output.
+  log:
     name: Log Mode
     description: Enable to start the program in log mode.  Logs are saved to /share/bluetti2mqtt/device.log.

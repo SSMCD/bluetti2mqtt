@@ -30,11 +30,14 @@ if [ $(bashio::config 'scan') == true ]; then
 	bluetti-mqtt --scan
 fi
 
-if [ $(bashio::config 'log_mode') == true ]; then
+if [ $(bashio::config 'debug') == true ]; then
+	export DEBUG=true
+fi
+
+if [ $(bashio::config 'log') == true ]; then
 	bashio::log.info 'Starting in log mode...'
 	mkdir -p /share/bluetti2mqtt/
 	bluetti-logger --log /share/bluetti2mqtt/device_$(date "+%m%d%y%H%M%S").log ${BT_MAC}
 else
-	bashio::log.info 'Starting...'
 	bluetti-mqtt --broker ${MQTT_HOST} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} ${BT_MAC}
 fi
