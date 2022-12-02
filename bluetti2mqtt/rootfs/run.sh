@@ -26,12 +26,17 @@ if bashio::config.has_value 'poll_sec'; then
 	POLL_SEC=$(bashio::config 'poll_sec')
 fi
 
+if bashio::config.has_value 'ha_config'; then
+	HA_CONFIG=$(bashio::config 'ha_config')
+fi
+
 if [ $(bashio::config 'scan') == true ]; then
 	bluetti-mqtt --scan
 fi
 
 if [ $(bashio::config 'debug') == true ]; then
 	export DEBUG=true
+	bashio::log.info 'Debug mode enabled.'
 fi
 
 if [ $(bashio::config 'log') == true ]; then
@@ -39,5 +44,6 @@ if [ $(bashio::config 'log') == true ]; then
 	mkdir -p /share/bluetti2mqtt/
 	bluetti-logger --log /share/bluetti2mqtt/device_$(date "+%m%d%y%H%M%S").log ${BT_MAC}
 else
-	bluetti-mqtt --broker ${MQTT_HOST} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} ${BT_MAC}
+	bashio::log.info 'Starting...'
+	bluetti-mqtt --broker ${MQTT_HOST} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} --ha-config ${HA_CONFIG} ${BT_MAC}
 fi

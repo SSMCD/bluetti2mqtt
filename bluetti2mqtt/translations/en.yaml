@@ -14,6 +14,9 @@ configuration:
   poll_sec:
     name: Poll Interval
     description: Polling interval in seconds.
+  ha_config:
+    name: HA Config Level
+    description: What fields to configure in Home Assistant - defaults to most fields ("normal")
   scan:
     name: Scan
     description: Scan for devices on startup.  Check the log tab for output.
