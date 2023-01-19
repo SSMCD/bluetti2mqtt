@@ -8,6 +8,9 @@ configuration:
   mqtt_host:
     name: MQTT host
     description: The MQTT host ip address.
+  mqtt_port:
+    name: MQTT port
+    description: The MQTT port - defaults to 1883
   bt_mac:
     name: Bluetooth MAC Address
     description: The MAC address(es) of the Bluetti devices.

@@ -18,6 +18,10 @@ if bashio::config.has_value 'mqtt_host'; then
 	MQTT_HOST=$(bashio::config 'mqtt_host')
 fi
 
+if bashio::config.has_value 'mqtt_port'; then
+	MQTT_PORT=$(bashio::config 'mqtt_port')
+fi
+
 if bashio::config.has_value 'bt_mac'; then
 	BT_MAC=$(bashio::config 'bt_mac')
 fi
@@ -45,5 +49,5 @@ if [ $(bashio::config 'log') == true ]; then
 	bluetti-logger --log /share/bluetti2mqtt/device_$(date "+%m%d%y%H%M%S").log ${BT_MAC}
 else
 	bashio::log.info 'Starting...'
-	bluetti-mqtt --broker ${MQTT_HOST} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} --ha-config ${HA_CONFIG} ${BT_MAC}
+	bluetti-mqtt --broker ${MQTT_HOST} --port ${MQTT_PORT} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} --ha-config ${HA_CONFIG} ${BT_MAC}
 fi
