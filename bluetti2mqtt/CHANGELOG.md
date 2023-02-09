@@ -1,3 +1,8 @@
+## [1.0.7] - 2023-02-09
+
+- Update regex config to match multiple mac addresses.
+- Add icon and logo.
+
 ## [1.0.6] - 2023-02-08
 
 - Update install instructions.

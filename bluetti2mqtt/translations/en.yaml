@@ -13,7 +13,7 @@ configuration:
     description: The MQTT port - defaults to 1883
   bt_mac:
     name: Bluetooth MAC Address
-    description: The MAC address(es) of the Bluetti devices.
+    description: The MAC address(es) of the Bluetti devices.  If entering multiple addresses, separate with a single space.
   poll_sec:
     name: Poll Interval
     description: Polling interval in seconds.
