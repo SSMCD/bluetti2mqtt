@@ -44,10 +44,11 @@ if [ $(bashio::config 'debug') == true ]; then
 fi
 
 if [ $(bashio::config 'log') == true ]; then
-	bashio::log.info 'Starting in log mode...'
+	bashio::log.info 'Starting bluetti-logger...'
+	bashio::log.info 'Messages are NOT published to the MQTT broker in log mode.'
 	mkdir -p /share/bluetti2mqtt/
 	bluetti-logger --log /share/bluetti2mqtt/device_$(date "+%m%d%y%H%M%S").log ${BT_MAC}
 else
-	bashio::log.info 'Starting...'
+	bashio::log.info 'Starting bluetti-mqtt...'
 	bluetti-mqtt --broker ${MQTT_HOST} --port ${MQTT_PORT} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} --ha-config ${HA_CONFIG} ${BT_MAC}
 fi

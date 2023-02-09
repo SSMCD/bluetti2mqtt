@@ -8,4 +8,4 @@ Before starting the addon, you will need to input your MQTT broker info and Blue
 
 If scan mode is enabled, the program will scan for nearby devices and display the resulting mac addresses in the log tab.  Copy the address(es) from the log and paste into the corresponding field in the Configuration tab.
 
-If log mode is enabled, the program will log the raw data to your /share directory.
+If log mode is enabled, the program will log the raw data to your /share directory.  NOTE:  In log mode, no data will be published to the MQTT broker.  This runs the bluetti-logger command as described in the link above.
