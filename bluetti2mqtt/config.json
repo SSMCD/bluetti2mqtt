@@ -5,6 +5,7 @@
   "description": "MQTT bridge between Bluetti and Home Assistant",
   "url": "https://github.com/SSMCD/bluetti2mqtt",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
+  "image": "ssmcd/{arch}-addon-bluetti2mqtt"
   "host_dbus": true,
   "usb": true,
   "map": ["share:rw"],
