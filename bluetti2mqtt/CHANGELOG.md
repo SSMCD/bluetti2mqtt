@@ -1,3 +1,7 @@
+## [1.1.0] - 2023-02-10
+
+- Addon now uses pre-built images.
+
 ## [1.0.7] - 2023-02-09
 
 - Update regex config to match multiple mac addresses.
