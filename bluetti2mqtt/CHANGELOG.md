@@ -1,3 +1,11 @@
+## [1.2.0] - 2023-02-15
+
+- Pin bluetti_mqtt to specific version.
+- Switch config files from json to yaml.
+- Reconfigure run.sh to allow --scan to be run in DEBUG mode.
+- Setup MQTT auto-configuration.
+- Update docs.
+
 ## [1.1.0] - 2023-02-10
 
 - Addon now uses pre-built images.
