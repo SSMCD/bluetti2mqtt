@@ -1,3 +1,10 @@
+## [1.2.1] - 2023-03-05
+
+- Update README.
+- Add LICENSE.
+- Setup workflows.
+- Setup dependabot.
+
 ## [1.2.0] - 2023-02-15
 
 - Pin bluetti_mqtt to specific version.
