@@ -1,3 +1,8 @@
+## [1.3.0] - 2023-03-14
+
+- Add bluez package.
+- Add additional documentation.
+
 ## [1.2.1] - 2023-03-05
 
 - Update README.
