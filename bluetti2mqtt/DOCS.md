@@ -66,3 +66,11 @@ INFO     Sent discovery message of XXXXX-0000000000000 to Home Assistant
 INFO     Connected to device: 00:11:22:33:44:55
 ```
 ___
+
+## Additional Documentation
+
+For more information, please refer to the following:
+
+- Github repository: [bluetti_mqtt](https://github.com/warhammerkid/bluetti_mqtt)
+
+- DIY Solar Forum: [Monitoring Bluetti Systems](https://diysolarforum.com/threads/monitoring-bluetti-systems.37870/)
