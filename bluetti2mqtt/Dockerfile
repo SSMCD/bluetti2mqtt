@@ -5,8 +5,10 @@ FROM $BUILD_FROM
 COPY rootfs /
 
 # Install bluetti_mqtt
-RUN pip install bluetti-mqtt==0.11.1
-
-RUN chmod a+x /run.sh
+RUN pip install bluetti-mqtt==0.11.1 \
+	&& apk add --update --no-cache \
+		bluez \
+	&& rm -rf /var/cache/apk/* /lib/apk/db/* \
+	&& chmod a+x /run.sh
 
 CMD [ "/run.sh" ]
