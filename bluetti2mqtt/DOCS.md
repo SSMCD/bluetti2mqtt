@@ -26,9 +26,17 @@ ___
 
 > The MQTT password.  Leave blank if you are using the Mosquitto broker add-on.
 
-### Required: `bt_mac`
+### Required: `mode`
 
-> The MAC address(es) of the Bluetti devices.  Separate multiple addresses with a single space.
+> Choose from three modes.
+
+> - `mqtt` - Monitor & control Bluetti device(s) via MQTT.
+
+> - `discovery` - Used for reverse engineering, see [here](https://github.com/warhammerkid/bluetti_mqtt#reverse-engineering).
+
+> - `logger` - Used for reverse engineering, see [here](https://github.com/warhammerkid/bluetti_mqtt#reverse-engineering).
+
+>>> Note: `discovery` & `logger` modes will output log files to your Home Assistant /share/bluetti2mqtt directory & will NOT publish messages to the MQTT broker.
 
 ### Required: `poll_sec`
 
@@ -36,7 +44,19 @@ ___
 
 ### Required: `ha_config`
 
-> What fields to configure in Home Assistant - defaults to most fields ("normal")
+> What fields to configure in Home Assistant - defaults to most fields ("normal"), see [here](https://github.com/warhammerkid/bluetti_mqtt#home-assistant-integration).
+
+> - `normal` - MOST sensors & commands are set up with MQTT discovery.
+
+> - `none` - MQTT discovery disabled.
+
+>>> Note - if MQTT discovery was previously enabled, you will need to clear your broker's retained messages to remove the sensor(s).
+
+> - `advanced` - MORE sensors & commands are set up with MQTT discovery (but not all).
+
+### Required: `bt_mac`
+
+> The MAC address(es) of the Bluetti devices.  Separate multiple addresses with a single space.
 
 ### Required: `scan`
 
@@ -46,10 +66,6 @@ ___
 
 > Enable debug mode.  Check the log tab for output.
 
-### Required: `log`
-
-> Enable to start the program in log mode.  Logs are saved to /share/bluetti2mqtt/device.log.
-> NOTE:  In log mode, no data will be published to the MQTT broker.  This runs the bluetti-logger command as described in the link above.
 
 ___
 

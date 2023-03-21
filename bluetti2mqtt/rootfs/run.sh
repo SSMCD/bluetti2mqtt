@@ -6,9 +6,11 @@
 
 bashio::log.info 'Reading configuration settings...'
 
-POLL_SEC=$(bashio::config 'poll_sec')
+MODE=$(bashio::config 'mode')
 HA_CONFIG=$(bashio::config 'ha_config')
 BT_MAC=$(bashio::config 'bt_mac')
+POLL_SEC=$(bashio::config 'poll_sec')
+SCAN=$(bashio::config 'scan')
 
 # Setup MQTT Auto-Configuration if values are not set.
 if bashio::config.has_value 'mqtt_host'; then
@@ -40,16 +42,48 @@ if [ $(bashio::config 'debug') == true ]; then
 	bashio::log.info 'Debug mode is enabled.'
 fi
 
-if [ $(bashio::config 'scan') == true ]; then
-	bluetti-mqtt --scan
+args=()
+if [ ${SCAN} == true ]; then
+	args+=(--scan)
 fi
 
-if [ $(bashio::config 'log') == true ]; then
-	bashio::log.info 'Starting bluetti-logger...'
-	bashio::log.info 'Messages are NOT published to the MQTT broker in log mode.'
-	mkdir -p /share/bluetti2mqtt/
-	bluetti-logger --log /share/bluetti2mqtt/device_$(date "+%m%d%y%H%M%S").log ${BT_MAC}
-else
-	bashio::log.info 'Starting bluetti-mqtt...'
-	bluetti-mqtt --broker ${MQTT_HOST} --port ${MQTT_PORT} --username ${MQTT_USERNAME} --password ${MQTT_PASSWORD} --interval ${POLL_SEC} --ha-config ${HA_CONFIG} ${BT_MAC}
-fi
+case $MODE in
+
+	mqtt)
+		bashio::log.info 'Starting bluetti-mqtt...'
+		args+=( \
+			--broker ${MQTT_HOST} \
+			--port ${MQTT_PORT} \
+			--username ${MQTT_USERNAME} \
+			--password ${MQTT_PASSWORD} \
+			--interval ${POLL_SEC} \
+			--ha-config ${HA_CONFIG} \
+			${BT_MAC})
+		bluetti-mqtt ${args[@]}
+		;;
+
+	discovery)
+		bashio::log.info 'Starting bluetti-discovery...'
+		bashio::log.info 'Messages are NOT published to the MQTT broker in discovery mode.'
+		mkdir -p /share/bluetti2mqtt/
+		args+=( \
+			--log /share/bluetti2mqtt/discovery_$(date "+%m%d%y%H%M%S").log \
+			${BT_MAC})
+		bluetti-discovery ${args[@]}
+		;;
+
+	logger)
+		bashio::log.info 'Starting bluetti-logger...'
+		bashio::log.info 'Messages are NOT published to the MQTT broker in logger mode.'
+		mkdir -p /share/bluetti2mqtt/
+		args+=( \
+			--log /share/bluetti2mqtt/logger_$(date "+%m%d%y%H%M%S").log \
+			${BT_MAC})
+		bluetti-logger ${args[@]}
+		;;
+
+	*)
+		bashio::log.warning "No mode selected!  Please choose either 'mqtt', 'discovery', or 'logger'."
+		;;
+
+esac
