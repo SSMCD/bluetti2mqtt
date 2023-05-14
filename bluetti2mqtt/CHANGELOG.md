@@ -1,3 +1,7 @@
+## [1.4.1] - 2023-05-13
+
+- Bump bluetti_mqtt to version 0.15.0.
+
 ## [1.4.0] - 2023-03-20
 
 - Bump bluetti_mqtt to version 0.12.0.
