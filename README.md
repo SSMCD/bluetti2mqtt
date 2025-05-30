@@ -12,7 +12,8 @@ or add it manually by navigating to `Settings` > `Add-ons` > `Add-on Store`
 Select the three dot menu in the upper right, choose `Repositories`, and add the following URL:
 
 ```
-https://github.com/SSMCD/bluetti2mqtt
+https://github.com/killerronnym/bluetti2mqtt2
+
 ```
 
 Refresh the page (hard refresh may be required), scroll down to **Bluetti to MQTT USB** and install the add-on.
