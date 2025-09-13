@@ -1,0 +1,32 @@
+---
+configuration:
+  mqtt_username:
+    name: MQTT username
+    description: The MQTT username.  Leave blank if you are using the Mosquitto broker add-on.
+  mqtt_password:
+    name: MQTT password
+    description: The MQTT password.  Leave blank if you are using the Mosquitto broker add-on.
+  mqtt_host:
+    name: MQTT host
+    description: The MQTT host ip address.  Leave blank if you are using the Mosquitto broker add-on.
+  mqtt_port:
+    name: MQTT port
+    description: The MQTT port.  Leave blank if you are using the Mosquitto broker add-on.
+  mode:
+    name: Program Mode
+    description: Program mode ( mqtt | discovery | logger ). See Docs.
+  ha_config:
+    name: HA Config Level
+    description: What fields to configure in Home Assistant - defaults to most fields ("normal")
+  bt_mac:
+    name: Address(es)
+    description: The MAC address(es) of the Bluetti devices.  Separate multiple addresses with a single space.
+  poll_sec:
+    name: Poll Interval
+    description: Polling interval in seconds.
+  scan:
+    name: Scan
+    description: Scan for devices on startup.  Check the log tab for output.
+  debug:
+    name: Debug Mode
+    description: Enable debug mode.  Check the log tab for output.

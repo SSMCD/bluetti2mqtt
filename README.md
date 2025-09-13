@@ -22,6 +22,8 @@ This repository contains the following add-ons:
 
 ### [Bluetti2MQTT](./bluetti2mqtt)
 
+### [Bluetti2MQTT (Beta)](./bluetti2mqtt-beta)
+
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]
